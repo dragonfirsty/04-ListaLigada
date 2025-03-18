@@ -146,16 +146,23 @@ void inserirElemento()
 void excluirElemento()
 {
 	int numero;
+	
 	cout << "Digite um numero" << endl;
 	cin >> numero;
+	NO* anterior;
 
 	NO* aux = primeiro;
 	while (aux->prox != NULL) {
-		if(aux->valor == numero){
 
+		if(aux->valor == numero){
+			anterior->prox = aux->prox;
 
 			free(aux);
 			break;
+	}
+	else{
+		anterior = aux;
+		aux = aux->prox;
 	}
 }
 }
