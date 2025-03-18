@@ -156,15 +156,14 @@ void excluirElemento()
 
 		if(aux->valor == numero){
 			anterior->prox = aux->prox;
-
-			free(aux);
+			anterior = aux;
 			break;
 	}
-	else{
 		anterior = aux;
 		aux = aux->prox;
-	}
 }
+free(anterior);
+
 }
 
 void buscarElemento()
