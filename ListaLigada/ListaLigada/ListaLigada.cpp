@@ -147,22 +147,35 @@ void excluirElemento()
 {
 	int numero;
 	
-	cout << "Digite um numero" << endl;
+	cout << "Digite um numero:";
 	cin >> numero;
-	NO* anterior;
+	NO* anterior = primeiro;
 
 	NO* aux = primeiro;
+	
+if(aux->valor == numero){
+	primeiro = aux->prox;
+	free(aux);
+}
+
+else
 	while (aux->prox != NULL) {
 
 		if(aux->valor == numero){
 			anterior->prox = aux->prox;
 			anterior = aux;
 			break;
-	}
+		}
 		anterior = aux;
 		aux = aux->prox;
 }
+
+if(anterior->valor == numero ){
 free(anterior);
+}
+else{
+	cout << "Numero não encontrado";
+}
 
 }
 
